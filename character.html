@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Character Creator</title>
+  <meta charset="utf-8">
+  <link href="glassfox.css" rel="stylesheet">
+  <link href="char.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.js"></script>
+  <script src="char.js"></script>
+</head>
+
+<body ng-app="Character" id="page">
+  <ui-view></ui-view>
+
+  <script type="text/ng-template" id="/home.html">
+    <h1>Character Creator</h1>
+
+    <div class="floatBox">
+
+      <h3>Add Character</h3>
+      <form ng-submit="addCharacter()">
+        <input type="text" placeholder="New Character Name" ng-model="name"></input><br>
+        <select ng-model="gender" ng-options="x for x in genders"></select>
+        <button type="submit">Add</button>
+      </form>
+
+      <div ng-repeat="character in chars">
+        <div class="post">
+          {{character.name + ' (' + character.gender + ')'}}
+          <a href="#/characters/{{chars.indexOf(character)}}">Edit Attributes</a>
+        </div>
+      </div><hr>
+
+
+
+    </div>
+  </script>
+
+  <script type="text/ng-template" id="/characters.html">
+    <div class="floatBox">
+      <div class="news">
+        <h2>{{char.name}}</h2>
+      </div>
+
+      <div class="post">
+        <ul> Saved Attributes
+          <li>Hair: {{char.attributes.hair}}</li>
+          <li>Eyes: {{char.attributes.eye}}</li>
+          <li>Skin: {{char.attributes.skin}}</li>
+          <li>Outfit: {{char.attributes.outfit}}</li>
+          <li>Personality Description: {{char.attributes.personality}}</li>
+        </ul>
+      </div>
+      <hr>
+
+      <h3>Attributes</h3>
+      <form ng-submit="addAttributes()">
+        <label for="h">Hair Color</label>
+        <select id="h" ng-model="hair" ng-options="x for x in hairColors"></select><br>
+        <label for="e">Eyes</label>
+        <select id="e" ng-model="eye" ng-options="x for x in eyes"></select><br>
+        <label for="s">Skin Color</label>
+        <select id="s" ng-model="skin" ng-options="x for x in skinColors"></select><br>
+        <label for="o">Outfit</label>
+        <select id="o" ng-model="outfit" ng-options="x for x in outfits"></select><br>
+        <textarea ng-model="personality" placeholder="Describe this character's personality"></textarea><br>
+        <button type="submit">Save</button>
+      </form>
+    </div>
+  </script>
+
+</body>
+</html>

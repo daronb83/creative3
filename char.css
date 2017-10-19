@@ -30,3 +30,12 @@ img {
   z-index: 1;
 
 }
+
+hr {
+  margin: 2em;
+}
+
+.news {
+  padding: 2em;
+  background-color: white;
+}

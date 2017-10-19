@@ -1,7 +1,6 @@
 /*
   Color Definitions
 
-  Bold                              Contrast
   #4B88A2  #6B9DB2 - dark blue      #D7D7D9  #DEDEDF #ECECED - light gray
   #F1FFE7  #F3FFEB - off-white      #F4F8FF  #F6F9FF - white
   #D7F9FF  #D3FAFF - light blue     #030301  #30302F - black
@@ -22,8 +21,7 @@ html, body {
   margin: 0 auto;
   padding: 0 auto;
   font-family: Arial, sans-serif;
-  background: white;
-  color: #030301;
+  background: #9CA0AA;
 }
 
 #page {
@@ -65,6 +63,7 @@ h3 { font-size: 1.5em; text-align: left; font-weight: lighter;}
 h4 { font-size: .75em; text-align: left; font-weight: lighter; font-style: italic;}
 p  { font-size: 1em; text-align: left; }
 
+/* Links */
 a:link { color: #97B2C3; text-decoration: none; }
 a:hover { color: #81A2B6; text-decoration: underline; }
 a:visited { color: #878C98; text-decoration: none; }
