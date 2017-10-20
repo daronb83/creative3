@@ -51,7 +51,12 @@ var mainCtrl = charApp.controller('MainCtrl', [
       $scope.chars.push({
         name: $scope.name,
         gender: $scope.gender,
-        attributes: {}
+        attributes: {
+          hair: "Black",
+          eye: "Black",
+          skin: "Fair",
+          outfit: "Simple"
+        }
       });
 
       console.log(charFactory.chars);
@@ -72,9 +77,9 @@ var charactersCtrl = charApp.controller('charactersCtrl', [
     $scope.char = charFactory.chars[$stateParams.id];
 
     $scope.hairColors = ["Black", "Brown", "Yellow", "Red", "White"];
-    $scope.eyes = ["Green", "Blue", "Brown", "Gray"];
+    $scope.eyes = ["Green", "Blue", "Brown", "Black"];
     $scope.skinColors = ["Fair", "Tan", "Black"];
-    $scope.outfits = ["Simple", "Woodsy", "Comfy", "Formal"];
+    $scope.outfits = ["Simple", "Woodsy", "Emo"];
 
     $scope.addAttributes = function(){
       //console.log("stateParams: " + $stateParams.id);

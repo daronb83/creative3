@@ -50,6 +50,7 @@ html, body {
 
 .flex {
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
@@ -93,6 +94,12 @@ textarea {
   font-size: 1em;
   border-radius: .2em;
   border: .1em solid #878C98;
+}
+
+select {
+  font-size: 1em;
+  padding: .5em;
+  margin-bottom: 1em;
 }
 
 button {

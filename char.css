@@ -1,9 +1,19 @@
-.post {
+.cbox {
   margin: .5em;
   margin-bottom: .75em;
   padding: .5em;
   background-color: #C5D4DD;
   border-radius: .25em;
+}
+
+.flex {
+  width:50%;
+  display:inline-block;
+  float:left;
+  border:1px solid lightgray;
+  border-radius: .25em;
+  background-color: #475964;
+  color: white;
 }
 
 p {
@@ -22,20 +32,31 @@ h4 {
   float: right;
 }
 
-img {
-  height: 1.3em;
-  width: 1.3em;
-  float: right;
-  margin-right: .25em;
-  z-index: 1;
+h3 {
+  text-align: center;
+}
 
+.imgContainer {
+  position: relative;
+}
+img {
+  position: absolute;
 }
 
 hr {
   margin: 2em;
 }
 
-.news {
-  padding: 2em;
+form {
+  align-items: center;
+}
+
+a {
+  float: right;
+}
+
+ul {
   background-color: white;
+  color: black;
+  padding: 1.5em;
 }

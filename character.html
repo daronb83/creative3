@@ -18,19 +18,26 @@
 
     <div class="floatBox">
 
-      <h3>Add Character</h3>
-      <form ng-submit="addCharacter()">
-        <input type="text" placeholder="New Character Name" ng-model="name"></input><br>
-        <select ng-model="gender" ng-options="x for x in genders"></select>
-        <button type="submit">Add</button>
-      </form>
+      <div class="flex">
+        <form ng-submit="addCharacter()">
+          <h3>Add Character</h3><br>
+          <input type="text" placeholder="New Character Name" ng-model="name" required></input><br>
+          <select ng-options="x for x in genders" ng-model="gender" required>
+            <option value=""></option>
+          </select>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
 
-      <div ng-repeat="character in chars">
-        <div class="post">
-          {{character.name + ' (' + character.gender + ')'}}
-          <a href="#/characters/{{chars.indexOf(character)}}">Edit Attributes</a>
+      <div style="width:50%; display:inline-block; padding-left:1em">
+        <h3>Edit Appearance</h3><br>
+        <div ng-repeat="character in chars">
+          <div class="cbox">
+            <a href="#/characters/{{chars.indexOf(character)}}">Edit Appearance</a>
+            {{character.name + ' (' + character.gender + ')'}}
+          </div>
         </div>
-      </div><hr>
+      </div>
 
 
 
@@ -38,35 +45,52 @@
   </script>
 
   <script type="text/ng-template" id="/characters.html">
-    <div class="floatBox">
-      <div class="news">
-        <h2>{{char.name}}</h2>
+    <div class="floatBox" style="height:100%">
+
+      <div class="flex">
+        <h3>Attributes</h3>
+        <form ng-submit="addAttributes()">
+          <label for="h">Hair Color</label>
+          <select id="h" ng-model="hair" ng-options="x for x in hairColors" required>
+            <option value=""></option>
+          </select><br>
+          <label for="e">Eyes</label>
+          <select id="e" ng-model="eye" ng-options="x for x in eyes" required>
+            <option value=""></option>
+          </select><br>
+          <label for="s">Skin Color</label>
+          <select id="s" ng-model="skin" ng-options="x for x in skinColors" required>
+            <option value=""></option>
+          </select><br>
+          <label for="o">Outfit</label>
+          <select id="o" ng-model="outfit" ng-options="x for x in outfits" required>
+            <option value=""></option>
+          </select><br>
+          <textarea ng-model="personality" placeholder="Describe this character's personality" required></textarea><br>
+          <button type="submit">Save</button>
+        </form>
       </div>
 
-      <div class="post">
-        <ul> Saved Attributes
+      <div class="flex">
+
+        <ul><h3>Name: {{char.name}}</h3>
           <li>Hair: {{char.attributes.hair}}</li>
           <li>Eyes: {{char.attributes.eye}}</li>
           <li>Skin: {{char.attributes.skin}}</li>
           <li>Outfit: {{char.attributes.outfit}}</li>
           <li>Personality Description: {{char.attributes.personality}}</li>
         </ul>
-      </div>
-      <hr>
 
-      <h3>Attributes</h3>
-      <form ng-submit="addAttributes()">
-        <label for="h">Hair Color</label>
-        <select id="h" ng-model="hair" ng-options="x for x in hairColors"></select><br>
-        <label for="e">Eyes</label>
-        <select id="e" ng-model="eye" ng-options="x for x in eyes"></select><br>
-        <label for="s">Skin Color</label>
-        <select id="s" ng-model="skin" ng-options="x for x in skinColors"></select><br>
-        <label for="o">Outfit</label>
-        <select id="o" ng-model="outfit" ng-options="x for x in outfits"></select><br>
-        <textarea ng-model="personality" placeholder="Describe this character's personality"></textarea><br>
-        <button type="submit">Save</button>
-      </form>
+        <div>
+          <div class="imgContainer">
+            <img src="img/outfit_{{char.attributes.outfit}}.png"/>
+            <img src="img/skin_{{char.attributes.skin}}.png"/>
+            <img src="img/eyes_{{char.attributes.eye}}.png"/>
+            <img src="img/{{char.gender}}hair_{{char.attributes.hair}}.png"/>
+          </div>
+        </div>
+      </div>
+
     </div>
   </script>
 
