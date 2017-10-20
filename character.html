@@ -30,7 +30,7 @@
       </div>
 
       <div style="width:50%; display:inline-block; padding-left:1em">
-        <h3>Edit Appearance</h3><br>
+        <h3>Character List</h3><br>
         <div ng-repeat="character in chars">
           <div class="cbox">
             <a href="#/characters/{{chars.indexOf(character)}}">Edit Appearance</a>
@@ -48,7 +48,7 @@
     <div class="floatBox" style="height:100%">
 
       <div class="flex">
-        <h3>Attributes</h3>
+        <h3 style="padding-top:1em">Attributes</h3>
         <form ng-submit="addAttributes()">
           <label for="h">Hair Color</label>
           <select id="h" ng-model="hair" ng-options="x for x in hairColors" required>
